@@ -28,7 +28,7 @@
 	"private": true,
 	"scripts": {
 		"astro": "astro",
-		"build": "astro build",
+		"build": "astro build && find dist -name '*.html' -exec sh -c 'mv \"$1\" \"${1%.html}.htm\"' _ {} +",
 		"cf-typegen": "wrangler types",
 		"check": "astro build && tsc && wrangler deploy --dry-run",
 		"deploy": "wrangler deploy",
